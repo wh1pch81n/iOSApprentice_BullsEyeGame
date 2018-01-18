@@ -1,21 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Bulls Eye View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BullsEyeViewController" customModule="BullsEye" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ph-9u-Ohf">
+                                <rect key="frame" x="259" y="145" width="50" height="30"/>
+                                <state key="normal" title="Hit Me!"/>
+                                <connections>
+                                    <action selector="tappedHitMeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CsD-G6-pka"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Put the Bull's Eye as close as you can to: x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TS-Kn-ZvJ">
+                                <rect key="frame" x="16" y="54" width="536" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Jp-xj-3YU">
+                                <rect key="frame" x="93" y="95" width="382" height="31"/>
+                                <connections>
+                                    <action selector="sliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="VFU-Lw-OPH"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCJ-bU-WmQ">
+                                <rect key="frame" x="50" y="99.5" width="29" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bL-OQ-GdZ">
+                                <rect key="frame" x="489" y="99.5" width="29" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juQ-4R-4qO">
+                                <rect key="frame" x="50" y="270" width="71" height="30"/>
+                                <state key="normal" title="Start Over"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fo-QR-cXC">
+                                <rect key="frame" x="171" y="274" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pul-0s-rPe">
+                                <rect key="frame" x="404" y="274" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mu-QQ-oFD">
+                                <rect key="frame" x="496" y="273.5" width="22" height="22"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9bL-OQ-GdZ" firstAttribute="centerY" secondItem="2Jp-xj-3YU" secondAttribute="centerY" id="1mh-w3-IUW"/>
+                            <constraint firstItem="9ph-9u-Ohf" firstAttribute="top" secondItem="2Jp-xj-3YU" secondAttribute="bottom" constant="20" id="2hC-dI-Qdi"/>
+                            <constraint firstItem="0Mu-QQ-oFD" firstAttribute="leading" secondItem="pul-0s-rPe" secondAttribute="trailing" constant="50" id="32d-bx-2hp"/>
+                            <constraint firstItem="9ph-9u-Ohf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="5HE-R2-JkU"/>
+                            <constraint firstItem="0Mu-QQ-oFD" firstAttribute="centerY" secondItem="pul-0s-rPe" secondAttribute="centerY" id="Dwe-oW-waL"/>
+                            <constraint firstItem="eCJ-bU-WmQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="E5X-9U-2yu"/>
+                            <constraint firstItem="9Fo-QR-cXC" firstAttribute="leading" secondItem="juQ-4R-4qO" secondAttribute="trailing" constant="50" id="GdX-pb-8f4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="juQ-4R-4qO" secondAttribute="bottom" constant="20" id="M97-jU-Hr0"/>
+                            <constraint firstItem="eCJ-bU-WmQ" firstAttribute="centerY" secondItem="2Jp-xj-3YU" secondAttribute="centerY" id="NH5-z8-vdU"/>
+                            <constraint firstItem="9Fo-QR-cXC" firstAttribute="baseline" secondItem="juQ-4R-4qO" secondAttribute="baseline" id="SVN-Yt-01Q"/>
+                            <constraint firstItem="2Jp-xj-3YU" firstAttribute="leading" secondItem="eCJ-bU-WmQ" secondAttribute="trailing" constant="16" id="ScH-Ov-zy1"/>
+                            <constraint firstItem="pul-0s-rPe" firstAttribute="centerY" secondItem="9Fo-QR-cXC" secondAttribute="centerY" id="Umv-x8-NHR"/>
+                            <constraint firstItem="4TS-Kn-ZvJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Z4J-rg-VgM"/>
+                            <constraint firstItem="2Jp-xj-3YU" firstAttribute="top" secondItem="4TS-Kn-ZvJ" secondAttribute="bottom" constant="20" id="aFv-Zl-pnI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9bL-OQ-GdZ" secondAttribute="trailing" constant="50" id="aiG-DU-wOo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Mu-QQ-oFD" secondAttribute="trailing" constant="50" id="dPp-ak-jIL"/>
+                            <constraint firstItem="9bL-OQ-GdZ" firstAttribute="leading" secondItem="2Jp-xj-3YU" secondAttribute="trailing" constant="16" id="gno-Rs-thI"/>
+                            <constraint firstItem="juQ-4R-4qO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="mPm-nW-ehO"/>
+                            <constraint firstItem="pul-0s-rPe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Fo-QR-cXC" secondAttribute="trailing" constant="16" id="rYh-Y2-JC5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4TS-Kn-ZvJ" secondAttribute="trailing" constant="16" id="sQ1-2U-Ge0"/>
+                            <constraint firstItem="4TS-Kn-ZvJ" firstAttribute="centerX" secondItem="2Jp-xj-3YU" secondAttribute="centerX" id="uZo-Xh-RzP"/>
+                            <constraint firstItem="9ph-9u-Ohf" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="v8F-cV-AQK"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="instructionLabel" destination="4TS-Kn-ZvJ" id="RFQ-Wj-Ch4"/>
+                        <outlet property="roundLabel" destination="pul-0s-rPe" id="5lR-qK-G5n"/>
+                        <outlet property="scoreLabel" destination="9Fo-QR-cXC" id="mgm-2N-bgv"/>
+                        <outlet property="sliderMaximumLabel" destination="9bL-OQ-GdZ" id="yR7-FQ-qNN"/>
+                        <outlet property="sliderMinimumLabel" destination="eCJ-bU-WmQ" id="cTn-VP-Yp4"/>
+                        <outlet property="userSlider" destination="2Jp-xj-3YU" id="DTo-0Q-dAl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
