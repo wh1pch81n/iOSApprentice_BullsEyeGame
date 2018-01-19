@@ -24,6 +24,8 @@ class BullsEyeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        styleSlider()
+        
         viewModel = BullsEyeViewModel(callback: { [unowned self] state in
             self.instructionLabel.text = state.instructionString
             self.sliderMinimumLabel.text = String(BullsEyeState.lowSliderValue)
@@ -37,6 +39,19 @@ class BullsEyeViewController: UIViewController {
         
         viewModel.chooseRandomTargetValue()
         viewModel.refresh()
+        
+    }
+    
+    func styleSlider() {
+        userSlider.setThumbImage(#imageLiteral(resourceName: "SliderThumb-Normal"), for: UIControlState.normal)
+        userSlider.setThumbImage(#imageLiteral(resourceName: "SliderThumb-Highlighted"), for: UIControlState.highlighted)
+        
+        let insets = UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 14)
+        let trackLeftResizable = #imageLiteral(resourceName: "SliderTrackLeft").resizableImage(withCapInsets: insets)
+        userSlider.setMinimumTrackImage(trackLeftResizable, for: UIControlState.normal)
+        
+        let trackRightResizable = #imageLiteral(resourceName: "SliderTrackRight").resizableImage(withCapInsets: insets)
+        userSlider.setMaximumTrackImage(trackRightResizable, for: UIControlState.normal)
         
     }
     

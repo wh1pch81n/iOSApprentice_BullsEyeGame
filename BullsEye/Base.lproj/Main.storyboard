@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ArialRoundedMTBold.ttf">
+            <string>ArialRoundedMTBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Bulls Eye View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -18,58 +24,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ph-9u-Ohf">
-                                <rect key="frame" x="259" y="145" width="50" height="30"/>
-                                <state key="normal" title="Hit Me!"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="4f1-3I-WyS">
+                                <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ph-9u-Ohf">
+                                <rect key="frame" x="234" y="141.5" width="100" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="B56-Yz-AdZ"/>
+                                    <constraint firstAttribute="width" constant="100" id="PIr-KL-3uu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="21"/>
+                                <size key="titleShadowOffset" width="0.0" height="1"/>
+                                <state key="normal" title="Hit Me!" backgroundImage="Button-Normal">
+                                    <color key="titleColor" red="0.37647058823529411" green="0.11764705882352941" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <state key="highlighted" backgroundImage="Button-Highlighted">
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="tappedHitMeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CsD-G6-pka"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Put the Bull's Eye as close as you can to: x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TS-Kn-ZvJ">
-                                <rect key="frame" x="16" y="54" width="536" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="16" y="50.5" width="536" height="21"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Jp-xj-3YU">
-                                <rect key="frame" x="93" y="95" width="382" height="31"/>
+                                <rect key="frame" x="94.5" y="91.5" width="379" height="31"/>
                                 <connections>
                                     <action selector="sliderMoved:" destination="BYZ-38-t0r" eventType="valueChanged" id="VFU-Lw-OPH"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCJ-bU-WmQ">
-                                <rect key="frame" x="50" y="99.5" width="29" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="50" y="96" width="30.5" height="21"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9bL-OQ-GdZ">
-                                <rect key="frame" x="489" y="99.5" width="29" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="487.5" y="96" width="30.5" height="21"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juQ-4R-4qO">
-                                <rect key="frame" x="50" y="270" width="71" height="30"/>
-                                <state key="normal" title="Start Over"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="juQ-4R-4qO">
+                                <rect key="frame" x="50" y="268" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="juQ-4R-4qO" secondAttribute="height" multiplier="1:1" id="E6O-bE-MAT"/>
+                                    <constraint firstAttribute="height" constant="32" id="c5U-iQ-JDb"/>
+                                </constraints>
+                                <state key="normal" image="StartOverIcon" backgroundImage="SmallButton"/>
                                 <connections>
                                     <action selector="tappedResetGameButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dRj-G8-HXA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Fo-QR-cXC">
-                                <rect key="frame" x="171" y="274" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="132" y="277.5" width="45.5" height="21"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pul-0s-rPe">
-                                <rect key="frame" x="404" y="274" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="390.5" y="277.5" width="45.5" height="21"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mu-QQ-oFD">
-                                <rect key="frame" x="496" y="273.5" width="22" height="22"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mu-QQ-oFD">
+                                <rect key="frame" x="486" y="272" width="32" height="32"/>
+                                <state key="normal" image="InfoButton" backgroundImage="SmallButton"/>
                                 <connections>
                                     <action selector="tappedInfoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WHh-HT-9u7"/>
                                 </connections>
@@ -84,21 +120,25 @@
                             <constraint firstItem="0Mu-QQ-oFD" firstAttribute="centerY" secondItem="pul-0s-rPe" secondAttribute="centerY" id="Dwe-oW-waL"/>
                             <constraint firstItem="eCJ-bU-WmQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="E5X-9U-2yu"/>
                             <constraint firstItem="9Fo-QR-cXC" firstAttribute="leading" secondItem="juQ-4R-4qO" secondAttribute="trailing" constant="50" id="GdX-pb-8f4"/>
+                            <constraint firstItem="4f1-3I-WyS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="LkQ-KQ-bdJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="juQ-4R-4qO" secondAttribute="bottom" constant="20" id="M97-jU-Hr0"/>
                             <constraint firstItem="eCJ-bU-WmQ" firstAttribute="centerY" secondItem="2Jp-xj-3YU" secondAttribute="centerY" id="NH5-z8-vdU"/>
                             <constraint firstItem="9Fo-QR-cXC" firstAttribute="baseline" secondItem="juQ-4R-4qO" secondAttribute="baseline" id="SVN-Yt-01Q"/>
                             <constraint firstItem="2Jp-xj-3YU" firstAttribute="leading" secondItem="eCJ-bU-WmQ" secondAttribute="trailing" constant="16" id="ScH-Ov-zy1"/>
+                            <constraint firstAttribute="bottom" secondItem="4f1-3I-WyS" secondAttribute="bottom" id="Txd-DQ-TYH"/>
                             <constraint firstItem="pul-0s-rPe" firstAttribute="centerY" secondItem="9Fo-QR-cXC" secondAttribute="centerY" id="Umv-x8-NHR"/>
                             <constraint firstItem="4TS-Kn-ZvJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Z4J-rg-VgM"/>
                             <constraint firstItem="2Jp-xj-3YU" firstAttribute="top" secondItem="4TS-Kn-ZvJ" secondAttribute="bottom" constant="20" id="aFv-Zl-pnI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9bL-OQ-GdZ" secondAttribute="trailing" constant="50" id="aiG-DU-wOo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0Mu-QQ-oFD" secondAttribute="trailing" constant="50" id="dPp-ak-jIL"/>
+                            <constraint firstItem="4f1-3I-WyS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fvg-VC-EE0"/>
                             <constraint firstItem="9bL-OQ-GdZ" firstAttribute="leading" secondItem="2Jp-xj-3YU" secondAttribute="trailing" constant="16" id="gno-Rs-thI"/>
                             <constraint firstItem="juQ-4R-4qO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="mPm-nW-ehO"/>
                             <constraint firstItem="pul-0s-rPe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9Fo-QR-cXC" secondAttribute="trailing" constant="16" id="rYh-Y2-JC5"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4TS-Kn-ZvJ" secondAttribute="trailing" constant="16" id="sQ1-2U-Ge0"/>
                             <constraint firstItem="4TS-Kn-ZvJ" firstAttribute="centerX" secondItem="2Jp-xj-3YU" secondAttribute="centerX" id="uZo-Xh-RzP"/>
                             <constraint firstItem="9ph-9u-Ohf" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="v8F-cV-AQK"/>
+                            <constraint firstAttribute="trailing" secondItem="4f1-3I-WyS" secondAttribute="trailing" id="xbk-eE-LDg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -115,4 +155,12 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Background" width="568" height="320"/>
+        <image name="Button-Highlighted" width="100" height="37"/>
+        <image name="Button-Normal" width="100" height="37"/>
+        <image name="InfoButton" width="10" height="22"/>
+        <image name="SmallButton" width="32" height="32"/>
+        <image name="StartOverIcon" width="20" height="20"/>
+    </resources>
 </document>
