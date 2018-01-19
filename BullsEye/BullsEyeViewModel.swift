@@ -45,11 +45,7 @@ class BullsEyeViewModel {
         // shift the random back offset by the lowest value
         let valueOffsetMin = min(BullsEyeState.lowSliderValue, BullsEyeState.highSliderValue) + random_n
         
-        if state.targetSliderValue == valueOffsetMin {
-            chooseRandomTargetValue()
-        } else {
             state.targetSliderValue = valueOffsetMin
-        }
     }
     
     func calculateScore() -> (diff: Int, score: Int) {
@@ -77,6 +73,7 @@ class BullsEyeViewModel {
     
     func resetAndMakeNewGame(with state: BullsEyeState = BullsEyeState()) {
         self.state = state
+        chooseRandomTargetValue()
     }
     
 }

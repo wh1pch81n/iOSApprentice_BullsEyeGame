@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class BullsEyeViewController: UIViewController {
 
@@ -58,6 +59,14 @@ class BullsEyeViewController: UIViewController {
     @IBAction func tappedResetGameButton(_ sender: Any) {
         viewModel.resetAndMakeNewGame()
         viewModel.refresh()
+        
+        // transition animation makes it fade into the new game
+        let transition = CATransition()
+        transition.type = kCATransitionFade
+        transition.duration = 1
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        
+        view.layer.add(transition, forKey: nil)
     }
     
     @IBAction func tappedHitMeButton(_ sender: Any) {
