@@ -13,23 +13,22 @@ struct BullsEyeState {
     static let highSliderValue: Int = 10 // highest target value
     public var targetSliderValue: Int = 0
     
-    public var userSliderValue: Int = (BullsEyeState.highSliderValue + BullsEyeState.lowSliderValue) / 2
+    public var userSliderValue: Int = lroundf(Float(BullsEyeState.highSliderValue + BullsEyeState.lowSliderValue) / 2.0)
     
     public var score: Int = 0
     public var round: Int = 1
 }
 
 extension BullsEyeState {
-    
     var instructionString: String { return "Put the Bull's Eye as close as you can to: \(targetSliderValue)" }
     var scoreString: String { return "Score: \(score)" }
     var roundString: String { return "Round: \(round)" }
 }
 
 class BullsEyeViewModel {
-    private var state: BullsEyeState = BullsEyeState()
+    var state: BullsEyeState = BullsEyeState()
     
-    private var callback: (BullsEyeState) -> ()
+    var callback: (BullsEyeState) -> ()
     
     init(callback: @escaping (BullsEyeState) -> ()) {
         self.callback = callback
@@ -52,7 +51,7 @@ class BullsEyeViewModel {
     func calculateScore() -> (diff: Int, score: Int) {
         let usersValue = state.userSliderValue
         let targetValue = state.targetSliderValue
-        let maxScorePerRound = 100
+        let maxScorePerRound = abs(BullsEyeState.highSliderValue - BullsEyeState.lowSliderValue)
         
         let diff = abs(usersValue - targetValue)
         let totalScore = maxScorePerRound - diff
