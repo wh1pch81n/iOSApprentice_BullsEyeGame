@@ -41,7 +41,7 @@ class BullsEyeViewModel {
     
     func chooseRandomTargetValue() {
         // normalize difference
-        let diff = abs(BullsEyeState.highSliderValue - BullsEyeState.lowSliderValue)
+        let diff = abs(BullsEyeState.highSliderValue - BullsEyeState.lowSliderValue) + 1
         let random_n = Int(arc4random_uniform(UInt32(diff)))
         // shift the random back offset by the lowest value
         let valueOffsetMin = min(BullsEyeState.lowSliderValue, BullsEyeState.highSliderValue) + random_n
@@ -61,13 +61,19 @@ class BullsEyeViewModel {
     }
     
     func beginNextRound() {
-        state.round += 1
-        state.score += calculateScore().score
+        var newState = BullsEyeState()
+        newState.round = state.round + 1
+        newState.score = state.score + calculateScore().score
+        state = newState
         chooseRandomTargetValue()
     }
     
     func setUserValue(_ value: Int) {
         state.userSliderValue = value
+    }
+    
+    func resetAndMakeNewGame(with state: BullsEyeState = BullsEyeState()) {
+        self.state = state
     }
     
 }

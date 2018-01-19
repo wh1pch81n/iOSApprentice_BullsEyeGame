@@ -19,6 +19,8 @@ class BullsEyeViewController: UIViewController {
 
     var viewModel: BullsEyeViewModel!
     
+    var easyMode: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +40,21 @@ class BullsEyeViewController: UIViewController {
         
     }
     
+    @IBAction func tappedResetGameButton(_ sender: Any) {
+        viewModel.resetAndMakeNewGame()
+        viewModel.refresh()
+    }
+    
+    @IBAction func tappedInfoButton(_ sender: Any) {
+        let message = "Slide the cursor to where you think the target value is.  Then tap \"Hit Me\" to see your score."
+        let alert = UIAlertController(title: "How To Play", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { _ in }
+        
+        alert.addAction(action)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func tappedHitMeButton(_ sender: Any) {
         let (diff, totalScore) = viewModel.calculateScore()
         let message = "You were off by \(diff), and scored \(totalScore) points"
@@ -53,7 +70,13 @@ class BullsEyeViewController: UIViewController {
     }
 
     @IBAction func sliderMoved(_ sender: Any) {
-        viewModel.setUserValue(lroundf(userSlider.value))
+        let newValue = lroundf(userSlider.value)
+        viewModel.setUserValue(newValue)
+        
+        if easyMode {
+            // Give the slider a "click" movement.
+            userSlider.value = Float(newValue)
+        }
     }
 }
 
