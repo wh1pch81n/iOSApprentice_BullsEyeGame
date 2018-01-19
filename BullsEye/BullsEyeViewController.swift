@@ -32,24 +32,19 @@ class BullsEyeViewController: UIViewController {
             self.scoreLabel.text = state.scoreString
             self.roundLabel.text = state.roundString
         })
-     
-        viewModel.state.setRandomTargetValue()
+        
+        viewModel.chooseRandomTargetValue()
+        viewModel.refresh()
         
     }
     
     @IBAction func tappedHitMeButton(_ sender: Any) {
-        let usersValue = viewModel.state.userSliderValue
-        let targetValue = viewModel.state.targetSliderValue
-        let maxScorePerRound = 100
-        
-        let diff = abs(usersValue - targetValue)
-        let totalScore = maxScorePerRound - diff
-        
-        let alert = UIAlertController(title: "Results", message: "You were off by \(diff), and scored \(totalScore) points", preferredStyle: UIAlertControllerStyle.alert)
+        let (diff, totalScore) = viewModel.calculateScore()
+        let message = "You were off by \(diff), and scored \(totalScore) points"
+        let alert = UIAlertController(title: "Results", message: message, preferredStyle: UIAlertControllerStyle.alert)
         let action = UIAlertAction(title: "Next Round", style: UIAlertActionStyle.default) { [unowned self] _ in
-            self.viewModel.state.round += 1
-            self.viewModel.state.score += totalScore
-            self.viewModel.state.setRandomTargetValue()
+            self.viewModel.beginNextRound()
+            self.viewModel.refresh()
         }
         
         alert.addAction(action)
@@ -58,7 +53,7 @@ class BullsEyeViewController: UIViewController {
     }
 
     @IBAction func sliderMoved(_ sender: Any) {
-        viewModel.state.userSliderValue = Int(userSlider.value)
+        viewModel.setUserValue(lroundf(userSlider.value))
     }
 }
 
